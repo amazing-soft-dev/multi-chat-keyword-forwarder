@@ -22,15 +22,14 @@
 ## 📸 Screenshots
 
 <p align="center">
-  <img src="screenshots/example_1.jpg" alt="Main Menu" width="250" height="250"" />
-  <img src="screenshots/example_2.jpg" alt="Help Command" width="300" height="250"" />
-  <img src="screenshots/gen_example.png" alt="Request Example" width="250" height="300"/>
+  <img src="screenshots/example_1.jpg" alt="example_1" width="450" height="450"" />
+  <img src="screenshots/example_2.jpg" alt="example_2" width="450" height="450"" />
 </p>
 
 <p align="center">
-  <img src="screenshots/start_screen.png" width="250" />
-  <img src="screenshots/filters_screen.png" width="250" />
-  <img src="screenshots/ban_screen.png" width="250" />
+  <img src="screenshots/start_screen.png" width="450" />
+  <img src="screenshots/filters_screen.png" width="450" />
+  <img src="screenshots/ban_screen.png" width="450" />
 </p>
 
 ## 🏗 Архитектура
