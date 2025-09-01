@@ -3,6 +3,11 @@
 Умный бот для мониторинга Telegram чатов с фильтрацией по ключевым словам. Автоматически находит и пересылает сообщения, содержащие заданные ключевые слова, прямо в ваши Saved Messages.
 
 
+[![aiogram](https://img.shields.io/badge/aiogram-3.x-blue?logo=python)](https://github.com/aiogram/aiogram)
+[![Telegram](https://img.shields.io/badge/Telegram-join%20chat-blue?logo=telegram)](https://t.me/progaem_rebiatky_1098)
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+
 ## ✨ Возможности
 
 - **📊 Мониторинг чатов** - Автоматический поиск сообщений по ключевым словам
@@ -12,6 +17,21 @@
 - **🚫 Защита от спама** - Игнорирование сообщений с запрещенными словами
 - **👥 Белый список** - Ограничение доступа к управлению ботом
 - **🌐 Поддержка групп и каналов** - Работает в любых типах чатов
+
+
+## 📸 Screenshots
+
+<p align="center">
+  <img src="screenshots/example_1.jpg" alt="Main Menu" width="250" height="250"" />
+  <img src="screenshots/example_2.jpg" alt="Help Command" width="300" height="250"" />
+  <img src="screenshots/gen_example.png" alt="Request Example" width="250" height="300"/>
+</p>
+
+<p align="center">
+  <img src="screenshots/start_screen.png" width="250" />
+  <img src="screenshots/filters_screen.png" width="250" />
+  <img src="screenshots/ban_screen.png" width="250" />
+</p>
 
 ## 🏗 Архитектура
 
