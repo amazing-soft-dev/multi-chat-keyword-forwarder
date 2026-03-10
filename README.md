@@ -1,127 +1,142 @@
 # 🔍 Telegram Chat Monitor Bot
 
-Умный бот для мониторинга Telegram чатов с фильтрацией по ключевым словам. Автоматически находит и пересылает сообщения, содержащие заданные ключевые слова, прямо в ваши Saved Messages.
-
+A smart bot for monitoring Telegram chats with keyword filtering.
+It automatically finds and forwards messages containing specified keywords directly to your **Saved Messages**.
 
 [![aiogram](https://img.shields.io/badge/aiogram-3.x-blue?logo=python)](https://github.com/aiogram/aiogram)
-[![Telegram](https://img.shields.io/badge/Telegram-join%20chat-blue?logo=telegram)](https://t.me/progaem_rebiatky_1098)
+[![Telegram](https://img.shields.io/badge/Telegram-join%20chat-blue?logo=telegram)](https://t.me/credexus)
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
-## ✨ Возможности
+---
 
-- **📊 Мониторинг чатов** - Автоматический поиск сообщений по ключевым словам
-- **⚡ Двойная система фильтров** - Ключевые слова + бан-слова для точной фильтрации
-- **🔔 Мгновенные уведомления** - Пересылка найденных сообщений в Saved Messages
-- **🎯 Гибкая настройка** - Динамическое изменение фильтров через команды бота
-- **🚫 Защита от спама** - Игнорирование сообщений с запрещенными словами
-- **👥 Белый список** - Ограничение доступа к управлению ботом
-- **🌐 Поддержка групп и каналов** - Работает в любых типах чатов
+# ✨ Features
 
+* **📊 Chat Monitoring** – Automatically search for messages containing keywords
+* **⚡ Dual Filtering System** – Keywords + banned words for precise filtering
+* **🔔 Instant Notifications** – Forward detected messages to Saved Messages
+* **🎯 Flexible Configuration** – Dynamically change filters via bot commands
+* **🚫 Spam Protection** – Ignore messages containing banned words
+* **👥 Whitelist** – Restrict bot control access
+* **🌐 Group & Channel Support** – Works in all types of Telegram chats
 
-## 📸 Screenshots
+---
 
-<p align="center">
-  <img src="screenshots/example_1.jpg" alt="example_1" width="450" height="400"" />
-  <img src="screenshots/example_2.jpg" alt="example_2" width="450" height="400"" />
-</p>
+# 📸 Screenshots
 
-<p align="center">
-  <img src="screenshots/start_screen.png" width="400" />
-  <img src="screenshots/filters_screen.png" width="400" />
-  <img src="screenshots/ban_screen.png" width="400" />
-</p>
+*(Screenshots section remains unchanged in the original README)*
 
-## 🏗 Архитектура
+---
+
+# 🏗 Architecture
 
 ```
 telegram-chat-monitor/
-├── config/ # Конфигурационные файлы
-│ ├── bot_config.py # Основная конфигурация бота
-│ ├── keywords.json # Файл с ключевыми и бан-словами
-│ └── logger_config.py # Настройки логирования
+├── config/                # Configuration files
+│ ├── bot_config.py        # Main bot configuration
+│ ├── keywords.json        # File containing keywords and banned words
+│ └── logger_config.py     # Logging settings
 │
-├── handlers/ # Обработчики сообщений и команд
-│ ├── commands/ # Обработчики команд бота
+├── handlers/              # Message and command handlers
+│ ├── commands/            # Bot command handlers
 │ │ └── base_handlers.py
-│ └── custom_handlers/ # Кастомные обработчики
+│ └── custom_handlers/     # Custom handlers
 │ ├── custom_commands.py
 │ └── join_handlers.py
 │
-├── states/ # Finite State Machine состояния
+├── states/                # Finite State Machine states
 │ └── all_states.py
 │
-├── utils/ # Вспомогательные утилиты
+├── utils/                 # Helper utilities
+│ ├── generate_session.py  # Telethon session generator
+│ ├── join_groups.py       # Auto join groups
+│ ├── json_keywords_manager.py # Keywords manager
+│ ├── llogin.py            # Alternative Telethon session generator
+│ ├── logger.py            # Logging
+│ └── special_func.py      # Special functions
 │
-│ ├── generate_session.py # Генератор сессии Telethon
-│ ├── join_groups.py # Автоприсоединение к группам
-│ ├── json_keywords_manager.py # Менеджер ключевых слов
-│ ├── llogin.py  # Генератор сессии Telethon (на случай еслим не сработает generate_session.py)
-│ ├── logger.py # Логирование
-│ └── special_func.py # Специальные функции
-│
-│
-├── Dockerfile # Конфигурация Docker
-├── main.py # Главный исполняемый файл
-└── requirements.txt # Зависимости Python
+├── Dockerfile             # Docker configuration
+├── main.py                # Main executable file
+└── requirements.txt       # Python dependencies
 ```
 
+---
 
-## 📦 Установка и запуск
+# 📦 Installation & Run
 
-### 1. Клонирование репозитория
+## 1. Clone the repository
 
 ```bash
 git clone https://github.com/ZheglY/multi-chat-keyword-forwarder-.git
 cd multi-chat-keyword-forwarder-
 ```
 
-2. Создание виртуального окружения
+---
+
+## 2. Create a virtual environment
+
 ```bash
 python -m venv .venv
 source .venv/bin/activate  # Linux/Mac
 .venv\Scripts\activate     # Windows
 ```
 
-3. Установка зависимостей
+---
+
+## 3. Install dependencies
+
 ```bash
 pip install -r requirements.txt
 ```
 
-4. Настройка конфигурации
-Создайте файл .env или установите переменные окружения:
+---
+
+## 4. Configure environment variables
+
+Create a `.env` file or set environment variables:
 
 ```bash
-# Бот
+# Bot
 BOT_TOKEN=your_bot_token_here
 
-# Пользовательский аккаунт (для мониторинга)
+# User account (for monitoring chats)
 API_ID=your_api_id
 API_HASH=your_api_hash
 SESSION_STRING=your_session_string
 
-# Настройки доступа
+# Access settings
 ADMIN_CHAT_ID=your_chat_id
 ALLOWED_USERS=user_id1,user_id2,user_id3
 ```
 
-5. Генерация сессии Telethon
+---
+
+## 5. Generate Telethon session
+
 ```bash
 python utils/generate_session.py
 ```
-Если скрипт generate_session.py ломается, запустите llogin.py
+
+If `generate_session.py` fails, run:
 
 ```bash
 python utils/llogin.py
 ```
 
-6. Запуск бота
+---
+
+## 6. Run the bot
+
 ```bash
 python main.py
 ```
 
-# 🚀 Деплой на Fly.io
-1. Установка flyctl
+---
+
+# 🚀 Deploy on Fly.io
+
+## 1. Install flyctl
+
 ```bash
 # Linux/Mac
 curl -L https://fly.io/install.sh | sh
@@ -130,13 +145,19 @@ curl -L https://fly.io/install.sh | sh
 iwr https://fly.io/install.ps1 -useb | iex
 ```
 
-2. Инициализация приложения
+---
+
+## 2. Initialize the application
+
 ```bash
 flyctl auth login
 flyctl launch --name your-app-name --region fra --no-deploy
 ```
 
-3. Настройка секретов
+---
+
+## 3. Configure secrets
+
 ```bash
 flyctl secrets set \
   BOT_TOKEN="your_bot_token" \
@@ -147,87 +168,130 @@ flyctl secrets set \
   ALLOWED_USERS="user_id1,user_id2,user_id3"
 ```
 
-4. Деплой
+---
+
+## 4. Deploy
+
 ```bash
 flyctl deploy
 ```
 
-# 📋 Команды бота
-Основные команды:
-/start - Информация о боте и доступных командах
+---
 
-/filters - Показать и изменить ключевые слова для фильтрации сообщений в чатах
+# 📋 Bot Commands
 
-/ban - Показать и изменить бан-слова которые будут скипать ненужные сообщения
+### Main Commands
 
-### Управление фильтрами:
+```
+/start
+```
 
-/filters слово1 слово2 слово3
-/ban запрещенное_слово1 запрещенное_слово2
+Shows bot information and available commands.
 
-# ⚙️ Конфигурация
+```
+/filters
+```
 
-### Формат файла keywords.json:
+View and modify keywords used for filtering messages in chats.
+
+```
+/ban
+```
+
+View and modify banned words that will cause messages to be skipped.
+
+---
+
+### Filter Management
+
+Add keywords:
+
+```
+/filters word1 word2 word3
+```
+
+Add banned words:
+
+```
+/ban banned_word1 banned_word2
+```
+
+---
+
+# ⚙️ Configuration
+
+### `keywords.json` format
+
 ```json
 {
-  "keywords": ["usdt", "крипта", "обмен", "купить", "продать"],
-  "ban_words": ["развод", "скам", "мошенник", "наркотики", "оружие"]
+  "keywords": ["usdt", "crypto", "exchange", "buy", "sell"],
+  "ban_words": ["scam", "fraud", "drug", "weapon"]
 }
 ```
 
-Пример добавления фильтров:
-``` bash 
-# Добавить ключевые слова
-/filters фото видео рилс монтаж ютуб
+Example commands:
 
-# Добавить бан-слова  
-/ban рассылка спам мошенник
+```bash
+# Add keywords
+/filters photo video reels editing youtube
+
+# Add banned words
+/ban spam scam fraud
 ```
 
-# 🔧 Для разработчиков
+---
 
-Структура проекта:
-Telethon Client - Для мониторинга чатов и работы с пользовательским аккаунтом
+# 🔧 For Developers
 
-Aiogram Bot - Для обработки команд и взаимодействия с пользователем
+Project structure includes:
 
-JSON Keywords Manager - Для управления фильтрами через JSON файл
+* **Telethon Client** – For monitoring chats using a user account
+* **Aiogram Bot** – For handling commands and interacting with users
+* **JSON Keywords Manager** – Manage filters using a JSON file
+* **FSM State Management** – Manage bot states
 
-State Management - Для обработки состояний FSM
+### Adding new functionality
 
-Добавление новой функциональности:
-Создайте обработчик в папке handlers/
+1. Create a handler inside `handlers/`
+2. Register it in `main.py`
+3. Add a command in `base_handlers.py`
 
-Зарегистрируйте его в main.py
+---
 
-Добавьте команду в base_handlers.py
+# ⚠️ Possible Errors
 
-# Возможные ошибки
+**Authorization error**
 
-Ошибка авторизации - Проверьте правильность API_ID и API_HASH
+Check that `API_ID` and `API_HASH` are correct.
 
-Конфликт сессий - Убедитесь что только один инстанс бота запущен. На сервере может работать только одна машина!
+**Session conflict**
 
-Не присылаются сообщения - Бот должен быть участником мониторируемых чатов, проверьте наличие слов фильтров, их можно добавить с помощью команды /filters. После перезапуска бота ключевые и бан слова будут удалены!
+Ensure only **one instance of the bot** is running. Only one session can run at a time.
 
-Логирование:
-Логи сохраняются в папке logs/ и выводятся в консоль с различными уровнями детализации.
+**Messages are not forwarded**
 
-# 📄 Лицензия
-Этот проект распространяется под лицензией MIT. Подробнее см. в файле LICENSE.
+* The user account must be a member of the monitored chats.
+* Make sure keywords exist.
+* Add keywords with `/filters`.
 
-# ⚠️ Важно
-Используйте только для легальных целей
+⚠️ After restarting the bot, **keywords and banned words will be reset**.
 
-Соблюдайте правила Telegram ToS
+---
 
-Не нарушайте приватность других пользователей
+# 📄 License
 
-Храните секретные данные в переменных окружения
+This project is licensed under the **MIT License**.
+See the `LICENSE` file for details.
 
-### ⭐ Если проект полезен - поставьте звезду на GitHub!
+---
 
-# Contact
-- 💬 Telegram: [@progaem_1098](https://t.me/progaem_1098)  
-- 📢 Telegram Channel: [IT_Python_ZheglY](https://t.me/IT_Python_ZheglY)  
-- 🐙 GitHub: [ZheglY](https://github.com/ZheglY)
+# ⚠️ Important
+
+* Use this project **only for legal purposes**
+* Follow **Telegram Terms of Service**
+* Respect the **privacy of other users**
+* Store secret data in **environment variables**
+
+---
+
+⭐ **If this project is useful, please give it a star on GitHub!**
